@@ -9,20 +9,6 @@ const app = express();
 mongoose.connect('mongodb://localhost/27017');
 
 
-app.get('/car', (req, res) => {
-  car.find().then[(cars) => {
-    res.json(cars)
-  }]
-});
-
-
-// app.get('/', (req, res) => res.json({
-//   name: "toyota",
-//   yearOfRelease: 2017,
-//   maxSpeed: 200,
-//   modelNumber: 00234
-// }));
-
 const ride = new Car({
   name: "volvo",
   yearOfRelease: 1995,
