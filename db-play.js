@@ -8,7 +8,7 @@ const app = express();
 //connect mongoose to mongodb localhost
 mongoose.connect('mongodb://localhost/27017');
 
-
+//new car constructor
 const ride = new Car({
   name: "volvo",
   yearOfRelease: 1995,
