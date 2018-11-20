@@ -16,14 +16,6 @@ app.get('/cars', (req, res) => {
   });
 });
 
-//display specific car 
-app.get('/cars/:name', (req, res) => {
-  const name = req.params.name;
-  Car.findOne({name: name}).then((car) => {
-    res.json(car);
-  });
-});
-
 //create a car
 app.post('/cars', (req, res) => {
   const body = req.body;
@@ -33,20 +25,28 @@ app.post('/cars', (req, res) => {
   });
 });
 
+//display specific car by model number
+app.get('/cars/:modelnumber', (req, res) => {
+  const modelNumber = req.params.modelnumber;
+  Car.findOne({modelNumber: modelNumber}).then((car) => {
+    res.json(car);
+  });
+});
+
 
 //update the content of a specific car
-app.put('/cars/:name', (req, res) => {
-  const name = req.params.name;
-  Car.findOneAndUpdate({name: name}, {maxSpeed: 5000}).then(() => {
+app.put('/cars/:modelnumber', (req, res) => {
+  const modelNumber = req.params.modelnumber;
+  Car.findOneAndUpdate({modelNumber: modelNumber}, {maxSpeed: 20000}).then(() => {
     res.json(car);
   });
 });
 
 
 //delete a specific car
-app.delete('/cars/:name', (req, res) => {
-  const name = req.params.name;
-  Car.findOneAndRemove({name: name}).then((car) => {
+app.delete('/cars/:modelnumber', (req, res) => {
+  const modelNumber = req.params.modelnumber;
+  Car.findOneAndRemove({modelNumber: modelNumber}).then((car) => {
     res.json(car);
   });
 });
